@@ -37,7 +37,7 @@ func StartListener(port, hivemindAddr string) {
 			continue
 		}
 
-		handleConnection(conn)
+		go handleConnection(conn)
 	}
 
 }

@@ -56,6 +56,9 @@ func handleConnection(conn net.Conn) {
 
 	hivemindConn, _ := net.Dial("tcp", HIVEMIND_ADDR)
 	hivemindConnTCP, _ := hivemindConn.(*net.TCPConn)
+
+	defer hivemindConnTCP.Close()
+
 	_, err = hivemindConnTCP.Write(msg[:n])
 	if err != nil {
 		return

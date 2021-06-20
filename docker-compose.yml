@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+    c2:
+        image: golang:1.16-alpine
+        container_name: c2
+        volumes:
+        - .:/go/src/server
+        working_dir: /go/src/server
+        command: go run cmd/server.go 
+        ports:
+        - "45123:45123"
